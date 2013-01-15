@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 var IsTyping = function() {
 
-		var TIME_OUT_VALUE = 200; // increase to reduce overhead
+		var TIME_OUT_VALUE = 100; // increase to reduce overhead
 		isTyping = this;
 		//CHAT_STATUS : "CLEAR","IS_TYPING","DONE_TYPING" 
 		isTyping.chat_status = "CLEAR";
@@ -16,7 +16,6 @@ var IsTyping = function() {
 		isTyping.onClear=function(){}
 
 		$("#chat-bar").keyup(function(e) {
-			console.log(e);
 			var enter_key = false;
 			var message = $("#chat-bar").val();
 			if(e.keyCode == 13) {
@@ -45,7 +44,7 @@ var IsTyping = function() {
 						isTyping.chat_status = "DONE_TYPING";
 						console.log(isTyping.chat_status);
 						isTyping.last_chat_bar_val = chat_bar_val;
-					} else if(chat_bar_val == "" && isTyping.chat_status != "CLEAR") {
+					} else if(!$("#chat-bar").val() && isTyping.chat_status != "CLEAR") {
 						isTyping.chat_status = "CLEAR";
 						isTyping.onClear();
 						console.log(isTyping.chat_status)
