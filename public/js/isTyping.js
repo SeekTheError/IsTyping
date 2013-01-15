@@ -17,7 +17,7 @@ var IsTyping = function() {
 
 		$("#chat-bar").keyup(function(e) {
 			var enter_key = false;
-			console.log(e);
+			//console.log(e);
 			var message = $("#chat-bar").val();
 			if(e.keyCode == 13) {
 				if(message != "") {
