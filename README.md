@@ -5,3 +5,5 @@ For instance, it could be used to autosave a file via an ajax request when the u
 It use jquery, and this repo include a node.js app to serv the file.
 
 However, it still need some improvement, the state machine used is not perfect yet.
+
+The snippet is located in js/isTyping.js
