@@ -6,4 +6,4 @@ It use jquery, and this repo include a node.js app to serv the files(for test pu
 
 However, it still need some improvement, the state machine used is not perfect yet.
 
-The snippet is located in js/isTyping.js
+The snippet is located in public/js/isTyping.js
