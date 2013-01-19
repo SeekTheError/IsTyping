@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Is Typing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- Styles -->
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel='stylesheet' href='/css/style.css' />
+<!-- Scripts -->
+<script src="/js/jquery.js"></script>
+<script src="/js/isTyping.js"></script>
+<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+</head>
+<body>
+<h3>Welcome to the test Sandbox of isTyping</h3>
+
+<input id="chat-bar" type="text" placeholder="try it">
+
+<br/>
+<br/>
+check the console to see the events
+
+<script>
+$(document).ready(function() {
+    var inputSelector = "#chat-bar";
+    isTyping = new IsTyping(inputSelector);
+
+
+    isTyping.onTyping = function() {
+        console.log("ON_TYPING")
+    }
+    isTyping.onDone = function() {
+        console.log("ON_DONE")
+    }
+    isTyping.onSubmit = function(message) {
+        console.log("ON_SUBMIT  message: ", message)
+    }
+    isTyping.onClear = function() {
+        console.log("ON_CLEAR")
+    }
+});
+
+</script>
+</body>
+
