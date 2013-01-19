@@ -1,5 +1,5 @@
 /* Copyright 2013 Rémi Bouchar aka SeekTheError
- http://remi.bouchar@gmail.com
+ remi.bouchar@gmail.com
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -25,7 +25,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
  * @var timeoutValue : the timelapse between a keybord key
  *                     is up and the ON_DONE or ON_CLEAR event are evaluated
  */
-
 var IsTyping = function(inputSelector, timeoutValue) {
         var TIME_OUT_VALUE = timeoutValue | 500;
         isTyping = this;
@@ -43,12 +42,12 @@ var IsTyping = function(inputSelector, timeoutValue) {
 
             setTimeout(function() {
                 var new_inputContent = $(inputSelector).val();
-                if(isTyping.lastActionPerformed != ON_DONE && new_inputContent == inputContent) {
+                if(isTyping.lastActionPerformed != ON_DONE && inputContent && new_inputContent == inputContent) {
                     isTyping.lastActionPerformed = ON_DONE
                     isTyping.onDone ? isTyping.onDone(inputContent) : false;
                     return;
                 }
-                if(isTyping.lastActionPerformed != ON_CLEAR && !new_inputContent) {
+                if(isTyping.lastActionPerformed != ON_CLEAR  && isTyping.lastActionPerformed != ON_SUBMIT && !new_inputContent) {
                     isTyping.lastActionPerformed = ON_CLEAR;
                     isTyping.onClear ? isTyping.onClear() : false;
                     return;

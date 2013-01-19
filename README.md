@@ -1,3 +1,5 @@
+#IsTyping, a simple input plugin, based on JQuery
+
 IsTyping is a Snippet that can be plugged to an html input to perform actions when the input is modified.
 
  - It is was designed for a chat application, allowing to send events when the user is typing, is done, press enter or delete the input content, in the fashion of most chat applications today.
