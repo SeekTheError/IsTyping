@@ -1,4 +1,3 @@
-
 /* Copyright 2013 Rémi Bouchar aka SeekTheError
  http://remi.bouchar@gmail.com
 
@@ -23,32 +22,33 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
 
 /*
  * @var inputSelector: a jQuery Selector
- * @var timeoutValue : the timelapse between a keybord key 
- *                     is up hand the ON_DONE or ON_CLEAR function is fired  
+ * @var timeoutValue : the timelapse between a keybord key
+ *                     is up and the ON_DONE or ON_CLEAR event are evaluated
  */
 
 var IsTyping = function(inputSelector, timeoutValue) {
-        var TIME_OUT_VALUE = timeoutValue | 400; 
+        var TIME_OUT_VALUE = timeoutValue | 500;
         isTyping = this;
 
         //States
-        var ON_CLEAR  = 0 ; 
-        var IS_TYPING = 1 ;
-        var ON_DONE   = 2 ;  
-        var ON_SUBMIT = 3 ;
+        var ON_CLEAR  = 0;
+        var IS_TYPING = 1;
+        var ON_DONE   = 2;
+        var ON_SUBMIT = 3;
 
         isTyping.lastActionPerformed = ON_CLEAR;
 
         $(inputSelector).keyup(function(e) {
             var inputContent = $(inputSelector).val();
+
             setTimeout(function() {
                 var new_inputContent = $(inputSelector).val();
-                if(isTyping.lastActionPerformed != ON_DONE && new_inputContent == inputContent && inputContent) {
+                if(isTyping.lastActionPerformed != ON_DONE && new_inputContent == inputContent) {
                     isTyping.lastActionPerformed = ON_DONE
                     isTyping.onDone ? isTyping.onDone(inputContent) : false;
                     return;
                 }
-                if(!new_inputContent && isTyping.lastActionPerformed != ON_CLEAR && isTyping.lastActionPerformed != ON_SUBMIT) {
+                if(isTyping.lastActionPerformed != ON_CLEAR && !new_inputContent) {
                     isTyping.lastActionPerformed = ON_CLEAR;
                     isTyping.onClear ? isTyping.onClear() : false;
                     return;
