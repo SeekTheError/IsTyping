@@ -15,6 +15,7 @@
 <script src="/js/isTyping.js"></script>
 <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 </head>
+<body>
 <h3>Welcome to the test Sandbox of isTyping</h3>
 
 <input id="chat-bar" type="text" placeholder="try it">
@@ -22,6 +23,27 @@
 <br/>
 <br/>
 check the console to see the events
-<body>
+
+<script>
+$(document).ready(function() {
+    var inputSelector = "#chat-bar";
+    isTyping = new IsTyping(inputSelector);
+
+
+    isTyping.onTyping = function() {
+        console.log("ON_TYPING")
+    }
+    isTyping.onDone = function() {
+        console.log("ON_DONE")
+    }
+    isTyping.onSubmit = function(message) {
+        console.log("ON_SUBMIT  message: ", message)
+    }
+    isTyping.onClear = function() {
+        console.log("ON_CLEAR")
+    }
+});
+
+</script>
 </body>
 
