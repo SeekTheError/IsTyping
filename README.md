@@ -13,7 +13,7 @@ Here is a sample demonstrating how you can integrate it:
     $(document).ready(function() {
         var inputSelector = "#chat-bar";//a jQuery selector for the input
         var timeoutValue = 500         //the amount of time between the user is done typing and the function is called 
-        isTyping = new IsTyping(inputSelector,1000);
+        isTyping = new IsTyping(inputSelector,timeoutValue);
 
         isTyping.onTyping = function() {
             console.log("ON_TYPING")
